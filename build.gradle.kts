@@ -25,7 +25,6 @@ allprojects {
     apply(plugin = "com.adarshr.test-logger")
     apply(plugin = "org.springframework.boot")
     apply(plugin = "io.spring.dependency-management")
-    //apply(plugin = "org.springframework.experimental.aot")
     apply(plugin = "org.jetbrains.kotlin.jvm")
     apply(plugin = "org.jetbrains.kotlin.plugin.spring")
 
@@ -58,14 +57,17 @@ subprojects {
         useJUnitPlatform()
     }
 
-//    tasks.withType<BootBuildImage> {
-//        builder = "paketobuildpacks/builder:tiny"
-//        environment = mapOf("BP_NATIVE_IMAGE" to "true")
+//    configurations.forEach {
+//        it.exclude(module = "spring-boot-starter-tomcat")
+//        it.exclude(module = "mockito-core")
 //    }
 
-    configurations.forEach {
-        it.exclude(module = "spring-boot-starter-tomcat")
-        it.exclude(module = "mockito-core")
+    extra["springCloudVersion"] = "2020.0.2"
+
+    dependencyManagement {
+        imports {
+            mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
+        }
     }
 
     dependencies {
@@ -75,6 +77,9 @@ subprojects {
         implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
         implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
     }
+
+    //tasks.compileKotlin { dependsOn(tasks.lintKotlin) }
+    //tasks.lintKotlin { dependsOn(tasks.formatKotlin) }
 
 }
 

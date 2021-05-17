@@ -7,3 +7,4 @@ pluginManagement {
 }
 rootProject.name = "axon-spring"
 include("product-service")
+include("eureka-discovery")
