@@ -1,6 +1,6 @@
 package com.zlrx.springaxon.product.utils
 
-import kotlinx.coroutines.reactor.awaitSingle
+import kotlinx.coroutines.reactive.awaitSingle
 import reactor.core.publisher.Mono
 import reactor.core.scheduler.Schedulers
 import java.util.UUID

@@ -11,7 +11,14 @@ services:
       - axonserver-data:/data
       - axonserver-events:/eventdata
       - axonserver-config:/config:ro
-
+  mongo:
+    image: mongo:4.2.3-bionic
+    hostname: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    ports:
+      - 27017:27017
 volumes:
   axonserver-data:
   axonserver-events:

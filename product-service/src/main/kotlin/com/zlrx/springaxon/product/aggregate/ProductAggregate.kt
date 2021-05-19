@@ -11,7 +11,7 @@ import java.math.BigDecimal
 
 @Aggregate
 class ProductAggregate @CommandHandler constructor(
-    val createProductCommand: CreateProductCommand
+    private val createProductCommand: CreateProductCommand
 ) {
 
     @AggregateIdentifier

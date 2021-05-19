@@ -3,7 +3,7 @@ package com.zlrx.springaxon.product.controller
 import com.zlrx.springaxon.product.command.CreateProductCommand
 import com.zlrx.springaxon.product.controller.model.CreateProductRequest
 import com.zlrx.springaxon.product.utils.asyncUUIDGenerator
-import kotlinx.coroutines.reactor.awaitSingle
+import kotlinx.coroutines.reactive.awaitSingle
 import org.axonframework.extensions.reactor.commandhandling.gateway.ReactorCommandGateway
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

@@ -1,16 +1,16 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    val kotlinVersion = "1.4.30"
+    val kotlinVersion = "1.5.0-RC"
     id("java")
     id("idea")
     id("application")
     id("org.jmailen.kotlinter") version "3.4.0"
     id("com.adarshr.test-logger") version "3.0.0"
     id("com.google.cloud.tools.jib") version "2.8.0"
-    id("org.springframework.boot") version "2.5.0-SNAPSHOT"
+    id("org.springframework.boot") version "2.5.0-RC1"
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
-    id("org.springframework.experimental.aot") version "0.10.0-SNAPSHOT"//  apply false
+    id("org.springframework.experimental.aot") version "0.10.0-SNAPSHOT" apply false
     kotlin("jvm") version kotlinVersion
     kotlin("plugin.spring") version kotlinVersion
 }
@@ -57,12 +57,7 @@ subprojects {
         useJUnitPlatform()
     }
 
-//    configurations.forEach {
-//        it.exclude(module = "spring-boot-starter-tomcat")
-//        it.exclude(module = "mockito-core")
-//    }
-
-    extra["springCloudVersion"] = "2020.0.2"
+    extra["springCloudVersion"] = "2020.0.3-SNAPSHOT"
 
     dependencyManagement {
         imports {
